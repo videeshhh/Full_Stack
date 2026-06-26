@@ -1,0 +1,17 @@
+/* Write your code here: */
+h1 , h2 {
+    color : blue;
+}
+
+div > p{
+    color : firebrick;
+}
+
+body > li {
+    color : green;
+}
+
+ul li {
+    color : purple;
+}
+ 
