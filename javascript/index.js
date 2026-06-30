@@ -39,19 +39,31 @@
 // console.log(fizzbuzz(arr));
 
 //fibonacci
-function fibonacciGenerator (n) {
-    var fibo = [];
-    if(n==1){
-        fibo=[0];
-    } else if(n==2){
-        fibo=[0,1];
-    } else{
-        fibo=[0,1];
-        for( var i=2 ; i<n ; i++){
-        fibo.push(fibo[i-1]+fibo[i-2]);
-    }
-     return fibo.slice(0,n);
-    }
+// function fibonacciGenerator (n) {
+//     var fibo = [];
+//     if(n==1){
+//         fibo=[0];
+//     } else if(n==2){
+//         fibo=[0,1];
+//     } else{
+//         fibo=[0,1];
+//         for( var i=2 ; i<n ; i++){
+//         fibo.push(fibo[i-1]+fibo[i-2]);
+//     }
+//      return fibo.slice(0,n);
+//     }
+// }
+
+// console.log(fibonacciGenerator(999999));
+
+
+//funtion calling 
+function bellBoy( name , age , hasworkPermit  , languages){
+    this.name = name ; 
+    this.age = age ; 
+    this.hasworkPermit = hasworkPermit;
+    this.languages = languages;
 }
 
-console.log(fibonacciGenerator(999999));
+var bellboy1 = new bellBoy("timmy" , 19 , true , ["hindi" , "english"]);
+console.log(bellboy1);

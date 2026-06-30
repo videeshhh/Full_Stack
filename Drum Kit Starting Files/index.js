@@ -2,7 +2,7 @@ var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
 for (var i=0; i<numberOfDrumButtons; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click" , function(){
-    var buttonHTML = this.innerHTML;
+    var buttonHTML = this.innerHTML; 
 
     switch  (buttonHTML){
         case "w":
@@ -38,6 +38,7 @@ for (var i=0; i<numberOfDrumButtons; i++) {
         
     }
 
-    });
-}
+    }); 
+} 
 
+ 
