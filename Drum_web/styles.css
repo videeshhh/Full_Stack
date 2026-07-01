@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  background-color: #283149;
+  background-color: #e78181;
 }
 
 h1 {
@@ -8,7 +8,8 @@ h1 {
   color: #DBEDF3;
   font-family: "Arvo", cursive;
   text-shadow: 3px 0 #DA0463;
-
+  text-align: center;
+  
 }
 
 footer {
@@ -84,4 +85,12 @@ footer {
   text-align: center;
   margin: 10px;
   background-color: white;
+}
+
+p{
+  font-size: large;
+  color: white ;
+  margin-top: 660px;
+  text-align: right;
+  margin-right: 50px;
 }
