@@ -1,10 +1,22 @@
+//iterate over drum buttons
 var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
 for (var i=0; i<numberOfDrumButtons; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click" , function(){
     var buttonHTML = this.innerHTML; 
+        makeSound(buttonHTML);
 
-    switch  (buttonHTML){
+    }); 
+} 
+
+//function to listen for which key is pressed and send it to makeSound() 
+document.addEventListener("keydown" , function(event){
+    makeSound(event.key);
+ });
+
+//function which checks the key press or button pressed and play sound acordingly
+function makeSound(key){
+    switch  (key){
         case "w":
             var crash = new Audio("sounds/crash.mp3");
             crash.play();
@@ -38,7 +50,4 @@ for (var i=0; i<numberOfDrumButtons; i++) {
         
     }
 
-    }); 
-} 
-
- 
+ }
