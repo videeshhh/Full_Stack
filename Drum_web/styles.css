@@ -9,7 +9,7 @@ h1 {
   font-family: "Arvo", cursive;
   text-shadow: 3px 0 #DA0463;
   text-align: center;
-  
+
 }
 
 footer {
@@ -61,7 +61,7 @@ footer {
 }
 
 .pressed {
-  box-shadow: 0 4px 5px 0 #DBEDF3;
+  box-shadow: 0 4px 5px 0 #ffffff;
   opacity: 0.5;
 }
 
@@ -80,17 +80,23 @@ footer {
   text-shadow: 3px 0 #DBEDF3;
   border-radius: 15px;
   display: inline-block;
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   text-align: center;
   margin: 10px;
   background-color: white;
 }
 
-p{
-  font-size: large;
+#p{
+  font-size: 40px;
   color: white ;
-  margin-top: 660px;
+  margin-top: 500px;
   text-align: right;
   margin-right: 50px;
+}
+
+#subtitle{
+  color: white;
+  text-align: center;
+  font-size: 40px;
 }
