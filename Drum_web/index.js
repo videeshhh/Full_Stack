@@ -1,6 +1,7 @@
 //iterate over drum buttons
 var numberOfDrumButtons = document.querySelectorAll(".drum").length;
 
+//function to add an event listner and select all buttons
 for (var i=0; i<numberOfDrumButtons; i++) {
     document.querySelectorAll(".drum")[i].addEventListener("click" , function(){
     var buttonHTML = this.innerHTML; 
