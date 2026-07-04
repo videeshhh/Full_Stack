@@ -1,5 +1,7 @@
 {
   "dependencies": {
-    "node": "^24.18.0"
+    "inquirer": "^14.0.2",
+    "node": "^24.18.0",
+    "qr-image": "^3.2.0"
   }
 }
