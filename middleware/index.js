@@ -5,7 +5,7 @@ import bodyParser from "body-parser";
 import morgan from "morgan";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
+var bandName = "";
 const app = express();
 const port = 3000;
 app.use(morgan("tiny"));
@@ -17,8 +17,10 @@ function bandNameGenerator(req, res , next){
   next();
 }
 
+app.use(bandNameGenerator);
+
 app.post("/submit", (req , res)=>{
-  console.log();
+  res.send(`<h1>Your Band name is</h1><h2>${bandName}</h2>`);
 });
 
 app.get("/", (req, res) => {
