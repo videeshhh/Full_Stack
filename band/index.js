@@ -3,7 +3,7 @@ import bodyParser from "body-parser";
 
 const app = express();
 const port = 3000;
-const year = new Date().getFullYear;
+const year = new Date().getFullYear();
 
 app.use(express.static("public"));
 
@@ -13,7 +13,7 @@ app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/", (req, res) => {
-  res.render("index.ejs");
+  res.render("index.ejs", { year });
 });
 
 app.post("/submit", (req, res) => {
