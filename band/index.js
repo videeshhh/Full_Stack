@@ -9,8 +9,10 @@ app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.locals.year = new Date().getFullYear();
+
 app.get("/", (req, res) => {
-  res.render("index.ejs", { year });
+  res.render("index.ejs");
 });
 
 app.post("/submit", (req, res) => {
