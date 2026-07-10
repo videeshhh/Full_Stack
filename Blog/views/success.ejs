@@ -1,0 +1,16 @@
+<%- include("partials/header.ejs") %>
+<!DOCTYPE html>
+<body>
+    <center>
+    <h1>Your blog has been saved!</h1>
+    <p>You will be redirected shortly</p>
+
+   <script>
+    setTimeout(() => {
+        window.location.href = "/";
+    }, 2000);
+</script>
+    </center>
+</body>
+</html>
+<%- include("partials/footer.ejs") %>

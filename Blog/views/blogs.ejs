@@ -1,0 +1,9 @@
+<%- include("partials/header.ejs") %>
+<% blogs.forEach(blog => { %>
+    <div class="blog-post">
+            <p><%= blog.id %></p>
+            <h2><%= blog.title %></h2>
+            <p><%= blog.text %></p>
+    </div>
+<% }) %>
+<%- include("partials/footer.ejs") %>
