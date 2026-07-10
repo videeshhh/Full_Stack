@@ -1,4 +1,6 @@
 //importing required packages
+import path from "path";
+import { fileURLToPath } from "url";
 import express from "express";
 import bodyParser from "body-parser";
 
@@ -7,14 +9,18 @@ const app = express();
 const port = 3000;
 const blogs = [];
 let nextId = 1;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 //MIDDLEWARES
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
 //body parser to get content from body
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //defines where static files are stored
-app.use(express.static("public"));
+app.use(express.static(path.join(__dirname, "public")));
 
 //Main page or landing page
 app.get("/" , (req, res)=>{
@@ -40,7 +46,10 @@ app.get("/blogs" , (req, res)=>{
 });
 
 //running server on port
-app.listen(port , ()=>{
-    console.log(`Server started on ${port}`);
-});
+if (process.env.NODE_ENV !== "production") {
+    app.listen(port , ()=>{
+        console.log(`Server started on ${port}`);
+    });
+}
 
+export default app;
