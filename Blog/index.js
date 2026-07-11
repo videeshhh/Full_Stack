@@ -18,6 +18,7 @@ app.set("views", path.join(__dirname, "views"));
 
 //body parser to get content from body
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json()); 
 
 //defines where static files are stored
 app.use(express.static(path.join(__dirname, "public")));
@@ -39,6 +40,20 @@ app.post("/submit" , (req, res)=>{
     res.render("success.ejs");
         
 }); 
+
+//delete request to delete a blog
+app.post("/delete", (req, res) => {
+    const id = Number(req.body.id);
+
+    const index = blogs.findIndex(blog => blog.id === id);
+
+    if (index !== -1) {
+        blogs.splice(index, 1);
+        return res.sendStatus(200);
+    }
+
+    res.sendStatus(404);
+});
 
 //this get method loads the blogs.ejs where the blogs will be displayed
 app.get("/blogs" , (req, res)=>{
