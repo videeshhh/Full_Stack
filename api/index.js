@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
   res.render("index.ejs", { content: "API Response." });
 });
 
-app.get("/noAuth", (req, res) => {
+app.get("/noAuth", async (req, res) => {
   try{
     const result = await axios.get("https://secrets-api.appbrewery.com/random");
     res.render("index.ejs" , { content : JSON.stringify(result.data) });
@@ -24,7 +24,7 @@ app.get("/noAuth", (req, res) => {
   }
 });
 
-app.get("/basicAuth", (req, res) => {
+app.get("/basicAuth", async (req, res) => {
   try {
     const response = await axios.get('https://secrets-api.appbrewery.com/all?page=2', {
       auth: {
@@ -38,27 +38,31 @@ app.get("/basicAuth", (req, res) => {
   }
 });
 
-app.get("/apiKey", (req, res) => {
-  const response = await axios.get('https://secrets-api.appbrewery.com/filter?score=5' , {
-  params: {
-    apiKey: "abc123xyz",
-    },
-  });
-
+app.get("/apiKey", async (req, res) => {
+  try{
+    const response = await axios.get('https://secrets-api.appbrewery.com/filter?score=5' , {
+    params: {
+      apiKey: yourAPIKey,
+      },
+    });
+    res.render("index.ejs" , { content : JSON.stringify(response.data) });
+  }catch (error) {
+    res.status(404).send(error.message);
+  }
 });
 
-app.get("/bearerToken", (req, res) => {
-  //TODO 5: Write your code here to hit up the /secrets/{id} endpoint
-  //and get the secret with id of 42
-  //HINT: This is how you can use axios to do bearer token auth:
-  // https://stackoverflow.com/a/52645402
-  /*
-  axios.get(URL, {
-    headers: { 
-      Authorization: `Bearer <YOUR TOKEN HERE>` 
-    },
-  });
-  */
+app.get("/bearerToken", async (req, res) => {
+  try {
+    const response = await axios.get('https://secrets-api.appbrewery.com/secrets/2', {
+      headers: {
+        Authorization: `Bearer ${yourBearerToken}`
+      },
+    });
+    res.render("index.ejs" , {content : JSON.stringify(response.data)});
+    console.log(response.data);
+  } catch (error) {
+    res.status(404).send(error.message);
+  }
 });
 
 app.listen(port, () => {
