@@ -38,8 +38,20 @@ app.post("/jokes" , (req , res)=>{
   res.json(newJoke);
 })
 
-//5. PUT a joke
+app.put("/jokes/:id" , (req , res)=>{
+  const id = parseInt(req.params.id);
+  const replacementJoke = {
+    id : id,
+    jokeText : req.body.text,
+    jokeType : req.body.type,
+  }
 
+  const searchIndex = jokes.find((joke)=> joke.id === id);
+  jokes[searchIndex] = jokes[replacementJoke];
+  res.json(replacementJoke);
+});
+
+app.patch()
 //6. PATCH a joke
 
 //7. DELETE Specific joke
