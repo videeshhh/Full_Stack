@@ -5,6 +5,8 @@ const app = express();
 const port = 3000;
 const masterKey = "4VGP2DN-6EWM4SJ-N6FGRHV-Z3PR3TT";
 
+let nextId = 101;
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json());
 
@@ -51,7 +53,9 @@ app.put("/jokes/:id" , (req , res)=>{
   res.json(replacementJoke);
 });
 
-app.patch()
+app.patch("/jokes/:id" , (req , res)=>{
+
+})
 //6. PATCH a joke
 
 //7. DELETE Specific joke
