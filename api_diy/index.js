@@ -67,10 +67,32 @@ app.patch("/jokes/:id" , (req , res)=>{
 
 })
 
+app.delete("/jokes/:id" , (req, res)=>{
+  const id = parseInt(req.params.id);
+  const searchIndex = jokes.findIndex((joke)=> joke.id === id);
+  if(searchIndex>-1){
+    jokes.splice(searchIndex , 1);
+    res.sendStatus(200);
+  } else {
+    res
+    .status(400)
+    .json({error : `Joke with index ${id} was not found so cant be deleted`});
+  }
 
-//7. DELETE Specific joke
+});
 
-//8. DELETE All jokes
+app.delete("/all" , (req , res)=>{
+  const userKey = req.headers.authorization;
+
+  if(userKey === masterKey){
+    jokes=[];
+    res.sendStatus(200);
+  } else {
+    res 
+    .sendStatus(400)
+    .json({error : `You are not authorized`});
+  }
+})
 
 app.listen(port, () => {
   console.log(`Successfully started server on port ${port}.`);
