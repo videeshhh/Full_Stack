@@ -214,12 +214,7 @@ var jokes = [
       "Why don't some couples go to the gym? Because some relationships don't work out.",
     jokeType: "Puns",
   },
-  {
-    id: 21,
-    jokeText:
-      "Parallel lines have so much in common. It's a shame they'll never meet.",
-    jokeType: "Math",
-  },
+  ,
   {
     id: 22,
     jokeText: "What do you call fake spaghetti? An impasta!",
