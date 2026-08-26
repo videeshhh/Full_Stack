@@ -1,20 +1,25 @@
-import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-const userName = "Videesh";
-const userSecondName = "sharma";
+const date = new Date();
+const currentTime = date.getHours();
 
-root.render(
-    <div>
-        <h1>My list</h1>
-        <ul>
-            <li>hello</li>
-            <li>My list</li>
-            <li>Welcome to my react app</li>
-            <li>{userName}</li>
-            <li>{`${userName} ${userSecondName}`}</li>
-        </ul>
-    </div>
-);
+let greeting;
+let style = {
+    color : ""
+}
+
+if(currentTime<12){
+    greeting = "Good Morning";
+    style.color = "red";
+} else if(currentTime < 18){
+    greeting = "Good Afternoon";
+    style.color = "green";
+} else {
+    greeting = "Good Night";
+    style.color = "blue";
+}
+
+
+root.render(<h1 style={style}>{greeting}</h1>);
