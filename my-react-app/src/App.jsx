@@ -4,6 +4,8 @@ import Card from "./card";
 
 function createCard(contact){
     return <Card 
+                key={contact.id}
+                id={contact.id}
                 name={contact.name}/*here contact.name says that take name from contacts and save it under name using contact.name*/
                 img={contact.imgURL}
                 phone={contact.phone}
